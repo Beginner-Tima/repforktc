@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 270 50% 15%;
+
+    --card: 40 40% 95%;
+    --card-foreground: 270 50% 15%;
+
+    --popover: 40 40% 98%;
+    --popover-foreground: 270 50% 15%;
+
+    --primary: 270 60% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 30% 90%;
+    --secondary-foreground: 270 50% 20%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 270 20% 40%;
+
+    --accent: 45 80% 55%;
+    --accent-foreground: 270 50% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 88%;
+    --ring: 270 60% 55%;
+
+    --radius: 1rem;
+
+    /* Custom colors */
+    --ktc-purple: 270 60% 55%;
+    --ktc-purple-light: 270 60% 70%;
+    --ktc-purple-dark: 270 65% 40%;
+    --ktc-cream: 40 40% 95%;
+    --ktc-cream-dark: 40 30% 88%;
+    --ktc-gold: 45 80% 55%;
+    --ktc-teal: 175 50% 45%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(270 60% 55%) 0%, hsl(290 55% 50%) 50%, hsl(270 65% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(40 40% 98%) 0%, hsl(40 30% 92%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(45 80% 55%) 0%, hsl(35 80% 50%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(270 60% 55% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(270 60% 55% / 0.12);
+    --shadow-elevated: 0 20px 50px -15px hsl(270 60% 55% / 0.2);
+
+    --sidebar-background: 40 40% 95%;
+    --sidebar-foreground: 270 50% 15%;
+    --sidebar-primary: 270 60% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 30% 90%;
+    --sidebar-accent-foreground: 270 50% 15%;
+    --sidebar-border: 40 20% 85%;
+    --sidebar-ring: 270 60% 55%;
+  }
+
+  .dark {
+    --background: 270 30% 8%;
+    --foreground: 40 40% 95%;
+
+    --card: 270 25% 12%;
+    --card-foreground: 40 40% 95%;
+
+    --popover: 270 25% 10%;
+    --popover-foreground: 40 40% 95%;
+
+    --primary: 270 55% 60%;
+    --primary-foreground: 270 50% 10%;
+
+    --secondary: 270 20% 18%;
+    --secondary-foreground: 40 40% 90%;
+
+    --muted: 270 15% 20%;
+    --muted-foreground: 40 20% 65%;
+
+    --accent: 45 70% 50%;
+    --accent-foreground: 270 50% 10%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 15% 20%;
+    --input: 270 15% 22%;
+    --ring: 270 55% 60%;
+
+    --sidebar-background: 270 25% 10%;
+    --sidebar-foreground: 40 40% 95%;
+    --sidebar-primary: 270 55% 60%;
+    --sidebar-primary-foreground: 270 50% 10%;
+    --sidebar-accent: 270 20% 18%;
+    --sidebar-accent-foreground: 40 40% 90%;
+    --sidebar-border: 270 15% 20%;
+    --sidebar-ring: 270 55% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  .ktc-gradient-bg {
+    background: var(--gradient-hero);
+  }
+
+  .ktc-gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ktc-card {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+
+  .ktc-card:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-4px);
+  }
+
+  .ktc-button-hero {
+    background: var(--gradient-hero);
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+  }
+
+  .ktc-button-hero:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
+  }
+
+  .ktc-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+  }
+
+  .ktc-glass {
+    background: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
